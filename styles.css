@@ -1,0 +1,352 @@
+@keyframes change_logo {
+    0% {
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg");
+    } 16%{
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Openverse_logo.svg/339px-Openverse_logo.svg.png");
+    } 32%{
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/be/Logo_of_the_United_States_Library_of_Congress.svg");
+    } 48%{
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/The_Metropolitan_Museum_of_Art_Logo.svg/768px-The_Metropolitan_Museum_of_Art_Logo.svg.png");
+    } 64%{
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/165px-NASA_logo.svg.png");
+    } 80%{
+        background-image: url("https://www.drupal.org/files/project-images/iconify_icons_module_0.png");
+    } 100%{
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg");
+    }
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-family: Tahoma, sans-serif;
+}
+
+body{
+    background-color: #f4eaf5;
+    text-align: center;
+}
+
+.text-higlight{
+    text-align: center;
+    color: #fb5607;
+    font-size: large;
+    font-weight: bold;
+}
+
+footer, .title{
+    background-color: #5a189a;
+    color: white;
+    width: 100%;
+    padding: 2%;
+}
+
+footer{
+    text-align: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2%;
+}
+
+.Hand_logo{
+    width: 6vw;
+    height: 10vh;
+    border-radius: 9px;
+}
+
+.title_search_bar{
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center !important;
+}
+
+.title_search_bar::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg");
+    animation-name: change_logo;
+    animation-timing-function: linear;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    filter: blur(8px);
+    background-size:  60% 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.search_bar_main_page{
+    background-color: rgba(251, 86, 7, 0.45);
+    width: 100%;
+    color: #FFFFFF;
+    position: relative;
+    padding: 8% 2%;
+}
+
+article{
+    padding: 2%;
+}
+
+.image_sources{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.logo_source{
+    width: 6vw;
+    height: 6vh;
+}
+
+.source_logo{
+    background-color: white;
+    border-radius: 9px;
+    padding: 1%;
+    border-style: solid;
+    border-color: #5a189a;
+    border-width: medium;
+}
+
+.source_logo:hover{
+    border-color: #fb5607;
+}
+
+button{
+    color: white;
+    font-weight: bold;
+    border-style: solid;
+    padding: 0.5% 1%;
+    border-color: white;
+    background-color: inherit;
+    /*background-color: #5a189a;*/
+}
+
+button:hover{
+    background-color: #5a189a;
+}
+
+.search_bar{
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: medium;
+    margin: auto;
+    text-align: center !important;
+}
+
+.openverse_logo{
+    width: 6vw;
+    height: 6vh; 
+}
+
+.image_holder{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    /*gap: 1%;*/
+    margin: auto;
+}
+
+.result_image_style{
+    width: 14vw;
+    height: 14vh;
+    background-color: white;
+}
+
+.result_image_style:hover{
+    border-style: solid;
+    border-color: #fb5607;
+}
+
+.normal_search_bar_but{
+    background-color: #5a189a;
+}
+
+.normal_search_bar_but:hover{
+    background-color: #fb5607;
+}
+
+.image_holder{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: auto;
+}
+
+.filters{
+    border-style: solid;
+    border-color: #fb5607;
+    padding: 2%;
+    width: 70%;
+    margin: auto;
+}
+
+.filter_header{
+    margin-top: auto;
+}
+
+.article{
+    text-align: center;
+}
+/*
+.image_selected_info{
+    display: none;
+}
+*/
+
+.image_selected_container{
+    background-color: white;
+    position: fixed;
+    top: 3%;
+    left: 4%;
+    padding: 2%;
+    display: none;
+    width: 86%;
+    height: 86%;
+    border-style: solid;
+    border-radius: 9px;
+    border-color: #5a189a;
+    border-width: thick;
+}
+
+#selected_image{
+    width: 20%;
+    min-width: 20%;
+    max-width: 20%;
+    aspect-ratio: 1 / 1;
+}
+
+#close_button{
+    position: absolute;
+    right: 1%;
+    top: 2%;
+    padding: 0.6% !important;
+    background-color: #9d4edd;
+    color: white;
+    border: none;
+    /*border-radius: 0 !important;*/
+}
+
+#close_button:hover{
+    background-color: #fb5607;
+}
+
+.popup_button{
+    padding: 1%;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-style: solid;
+    border-color: #5a189a;
+    border-radius: 9px;
+    background-color: white;
+    border-width: medium;
+}
+
+.popup_button:hover{
+    background-color: #fb5607;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    display: inline-block;
+}
+
+#Download_button{
+    width: 90%;
+}
+
+.image_selected_info{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2%;
+    flex-wrap: wrap;
+}
+
+.im_info{
+    text-align: left;
+    width: 20%;
+}
+
+#exceeded_api_message{
+    display: none;
+    color: #fb5607;
+}
+
+@media (max-width: 768px) {
+    .openverse_logo, .logo_source{
+        width: 8vw;
+        height: 2vh;
+    }
+
+    .openverse_logo{
+        width: 12vw;
+        height: 2vh;
+    }
+
+    .title_search_bar::before{
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg");
+        animation-name: change_logo;
+        animation-timing-function: linear;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        filter: blur(5px);
+        background-size:  60% 90%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .Hand_logo{
+        width: 20vw;
+        height: 10vh;
+    }
+
+    .image_selected_info{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        font-size: small;
+        width: 100%;
+        align-items: center;
+    }
+    .image_selected_container h2{
+        font-size: small;
+    }
+    .im_info{
+        width: 100%;
+    }
+    .im_info p{
+        width: 100%;
+        display: block;
+        gap: 2%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeImageDomain - Public Domain Image Search Engine</title>
+    <meta name="description" content="FreeImageDomain allows to download public domain images from multiple sources like Wikimedia, NASA, and more in one place!">
+    <meta name="keywords" content="
+    public domain images, 
+    free images, 
+    free image search, 
+    Wikimedia images, 
+    NASA images, 
+    Openverse images, 
+    Library of Congress images,
+    Metropolitan Museum images,
+    Iconify images,
+    free icons,
+    CC0 images,
+    creative commons images,
+    open access images,
+    non-copyrighted images,
+    image search engine,
+    free stock photos,
+    free to use images,
+    image aggregator,
+    free image API,
+    FreeImageDomain,
+    public domain search
+    ">
+    <meta name="author" content="FreeImageDomain">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="TheHand_logo.jpg">
+</head>
+<body>
+    <main style="text-align: left;">
+        <header>
+            <a class="title" href="http://0.0.0.0:8000" style="color:white; text-decoration: none;">
+                <img src="TheHand_logo.jpg" class="Hand_logo">
+                <h1>FreeImageDomain</h1>
+            </a>
+        </header>
+        <article>
+            <h2>FreeImageDomain API</h2>
+            <p>
+                FreeImageDomain API is a REST_API made to power FreeImageDomain and, therefore, allows to retrieve multiple images
+                belonging to the public domain extracted from different sources.
+            </p>
+            <h4 style="color: #fb5607">Warning: Currently both FreeImageDomain and FreeImageDomain API are in their first version, therefore many modifications will be made to this API as people use it.</h4>
+        </article>
+        <article>
+            <h2>Which sources are being used?</h2>
+            <p>Currently there are six image sources used:</p>
+            <ul>
+                <li>Openverse</li>
+                <li>Iconify</li>
+                <li>Wikimedia Commons</li>
+                <li>NASA</li>
+                <li>Library of Congress</li>
+                <li>Metropolitan Museum</li>
+            </ul>
+        </article>
+        <article>
+            <h2>Usage</h2>
+            <p>The FreeImageDomain API does not require registration and posseses two endpoints:</p>
+            <ul>
+                <li><strong>Look for images in all sources except the Metropolitan Museum: </strong>//free-image-domain-api.vercel.app/retrieve_public_images?q={query}&limit={number of entries}&license={license}</li>
+                <li><strong>Look for images in the Metropolitan Museum: </strong>//free-image-domain-api.vercel.app/retrieve_met?q=${search_term}&limit={limit}&license={license}</li>
+            </ul>
+            <p>Where {query} stands for the search term the user wants to use, {limit} the number of entries, and finally {license} for the license each image needs to have</p>
+            <p>Currently only <strong>cc0</strong> license is implemented and it will return results belonging to the public domain, still, you can use the API to look for images with licenses that match a specific term in all sources like CC-SA 1.0.</p>
+            <h4>Example of use:</h4>
+            <div style="background-color: black; color: white; padding: 2px;">
+                https://free-image-domain-api.vercel.app/retrieve_public_images?q=dog&limit=20&license=cc0`
+            </div>
+            <div style="background-color: black; color: white; padding: 2px;">
+                https://free-image-domain-api.vercel.app/retrieve_met?q=dog&limit=20&license=cc0`
+            </div>
+        </article>
+        <article>
+            <h2>Results</h2>
+            <p>
+                Both endpoints return a JSON with six entries, each containing an array where every element contains
+                the url of an image and different metadata that has been found about it.
+            </p>
+        </article>
+        <article>
+            <h2>Rate Limit</h2>
+            <p>The FreeImageDomain API allows a maximum of <strong>7 requests per minute</strong>.</p>
+            <p>
+                This limit has been established due to the fact that FreeImageDomain uses external APIs to retrieve
+                images and, therefore, the limits defined for each must be respected in order for all websites to function properly.
+            </p>
+
+            <p style="font-weight: bold;">
+                IF THE REQUESTS PER MINUTE LIMIT IS EXCEEDED, A MESSAGE WILL BE RETURNED ALONGSIDE A 429 ERROR INDICATING THAT THE LIMIT HAS BEEN EXCEEDED.
+                AFTER A MINUTE IT WILL BE POSIBLE TO MAKE REQUESTS AGAIN
+            </p>
+        </article>
+    </main>
+    <footer>
+        <section>
+            <h4>Image sources</h4>
+                <p>
+                    Wikimedia Commons, Openverse,
+                    Library of Congress, Metropolitan Museum,
+                    NASA, Iconify
+                </p>
+        </section>
+        <section>
+            <h4>Legal</h4>
+            <p>
+                All images are sourced from public domain or CC-licensed content.
+                Please review individual source licenses where applicable.
+            </p>
+        </section>
+        <section>
+            <h4>Contact email</h4>
+            <p>
+                freeimagedomain@gmail.com
+            </p>
+        </section>
+        <section>
+            <h4>Copyright</h4>
+            <p>
+                &copy; 2025 FreeImageDomain. All rights reserved.
+            </p>
+        </section>
+    </footer>
+</body>
+</html>

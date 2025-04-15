@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=º, initial-scale=1.0">
+    <!-- Load the latest version of TensorFlow.js -->
+     <!-- Load TensorFlow.js. This is required to use MobileNet. -->
+     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+     <!-- Load the MobileNet model. -->
+     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1"></script>
+    <script src="index.js"></script>
+    <title id="search_query_title">FreeImageDomain query</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="TheHand_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <main>
+        <header>
+            <a class="title" href="http://0.0.0.0:8000" style="color:white; text-decoration: none;">
+                <img src="TheHand_logo.jpg" class="Hand_logo">
+                <h1>FreeImageDomain</h1>
+            </a>
+        </header>
+        <form style="text-align: center;" method="get" action="http://0.0.0.0:8000/search.html">
+            <h2>Search an Image</h2>
+            <input type="text" class="search_bar" id="query" name="query" required>
+            <button type="submit" class="normal_search_bar_but">Search</button>
+        </form>
+        <article>
+            <h2 id="Search_header">Results for:</h2>
+            <form class="filters" method="get" action="http://0.0.0.0:8000/search.html">
+                <h4 class="filter_header">AI filtering (beta)</h4>
+                <input type="text" id="aisearch" name="aisearch" class="search_bar" required>
+                <button class="normal_search_bar_but" type="submit">Search</button>
+                <input type="hidden" id="query" name="query" value="">
+                <p>Use image classification model MobileNet to filter by content the first 6 results of each source with the exception of the Metropolitan Museum, which has its first 4 images classified only; to obtain more specific images.</p>
+            </form>
+            <p id="exceeded_api_message">
+                You've reached the search limit for the moment. Please wait a few seconds while we fetch your results. Thanks for your patience!
+            </p>
+            <h3>Openverse</h3>
+            <div class="loader" id="openverse_loader"></div>
+            <div class="image_holder" id="images_openverse"></div>
+            <h3>Iconify</h3>
+            <div class="loader" id="iconify_loader"></div>
+            <div class="image_holder" id="images_icons"></div>
+            <h3>Wikimedia</h3>
+            <div class="loader" id="wikimedia_loader"></div>
+            <div class="image_holder" id="images_wikimedia"></div>
+            <h3>NASA</h3>
+            <div class="loader" id="nasa_loader"></div>
+            <div class="image_holder" id="images_nasa"></div>
+            <h3>Library Of Congress</h3>
+            <div class="loader" id="loc_loader"></div>
+            <div class="image_holder" id="images_loc"></div>
+            <h3>Metropolitan Museum</h3>
+            <div class="loader" id="met_loader"></div>
+            <div class="image_holder" id="image_met"></div>
+        </article>
+        <div class="image_selected_container" id="selected_container">
+            <button id="close_button" class="popup_button" onclick="close_popup()">X</button>
+            <h2 id="image_selected_title">A</h2>
+            <div class="image_selected_info">
+                <img id="selected_image">
+                <div class="im_info">
+                    <p id="author"></p>
+                    <p id="date"></p>
+                    <p id= "size"></p>
+                    <p id="license"></p>
+                </div>
+            </div>
+            <br><br>
+            <a id="Download_button" class="popup_button" download><i class="fa fa-download"></i> Download</a>
+        </div>
+    </main>
+    <footer>
+        <section>
+            <h4>Image sources</h4>
+                <p>
+                    Wikimedia Commons, Openverse,
+                    Library of Congress, Metropolitan Museum,
+                    NASA, Iconify
+                </p>
+        </section>
+        <section>
+            <h4>Legal</h4>
+            <p>
+                All images are sourced from public domain or CC-licensed content.
+                Please review individual source licenses where applicable.
+            </p>
+        </section>
+        <section>
+            <h4>Contact email</h4>
+            <p>
+                freeimagedomain@gmail.com
+            </p>
+        </section>
+        <section>
+            <h4>Copyright</h4>
+            <p>
+                &copy; 2025 FreeImageDomain. All rights reserved.
+            </p>
+        </section>
+    </footer>
+</body>
+</html>
