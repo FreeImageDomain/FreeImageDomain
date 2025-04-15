@@ -151,7 +151,7 @@ window.onload = async function(){
             });
         }
         let count = 0;
-        let ai_image = 6;
+        let ai_image = 10;
         let l_openverse = document.getElementById("openverse_loader");
         l_openverse.style.display = "block";
 
