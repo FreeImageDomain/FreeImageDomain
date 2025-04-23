@@ -46,7 +46,7 @@ function getQueryParam(name) {
 async function query_images(search_term){
     let response = await fetch(`https://free-image-domain-api.vercel.app/retrieve_public_images?q=${search_term}&limit=20&license=cc0`);
     //console.log(response.status);
-    if(response.status == 429){
+    if((response.status == 429) || (!response.ok)){
         //console.log("Status_received", response.status);
         document.getElementById("exceeded_api_message").style.display = "block";
         await new Promise(resolve => setTimeout(resolve, 60000));
