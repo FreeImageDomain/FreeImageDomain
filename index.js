@@ -65,6 +65,19 @@ async function query_images(search_term){
 
 async function query_images_met(search_term) {
     let response = await fetch(`https://free-image-domain-api.vercel.app/retrieve_met?q=${search_term}&limit=20&license=cc0`);
+    if((response.status == 429) || (!response.ok)){
+        //console.log("Status_received", response.status);
+        if (response.status == 429){
+            document.getElementById("exceeded_api_message").innerHTML = "You've reached the search limit for the moment. Please wait a minute while we fetch your results. Thanks for your patience!";
+            document.getElementById("exceeded_api_message").style.display = "block";
+        } else{
+            document.getElementById("exceeded_api_message").innerHTML = "A problem has been found while retrieving your results. We'll try again in a minute. Thanks for your patience!";
+            document.getElementById("exceeded_api_message").style.display = "block";
+        }
+        await new Promise(resolve => setTimeout(resolve, 60000));
+        response = await fetch(`https://free-image-domain-api.vercel.app/retrieve_met?q=${search_term}&limit=20&license=cc0`);
+        document.getElementById("exceeded_api_message").style.display = "none";
+    }
     let image_jsons = await response.json();
     return image_jsons;
 }
